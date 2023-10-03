@@ -11,6 +11,7 @@ jobs:
         with:
           node-version: 18
       - run: npm install
+      - run: zip -9 -r --exclude=*.git*  polarispackage.zip ${GITHUB_WORKSPACE}
       - name: Run Polaris Scan
         shell: bash
         env:
@@ -22,6 +23,5 @@ jobs:
           POLARIS_SAST_ENTITLEMENT: ${{ secrets.POLARIS_SAST_ENTITLEMENT }}
         run: |
           pip3 install -r requirements.txt
-          zip -9 -r --exclude=*.git*  polarispackage.zip ${GITHUB_WORKSPACE}
           python3 .polaris-uploadandscan.py
           rm -rf polarispackage.zip
