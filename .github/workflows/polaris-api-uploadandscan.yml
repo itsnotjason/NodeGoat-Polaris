@@ -21,6 +21,6 @@ jobs:
           POLARIS_SCA_ENTITLEMENT: ${{ secrets.POLARIS_SCA_ENTITLEMENT }}
           POLARIS_SAST_ENTITLEMENT: ${{ secrets.POLARIS_SAST_ENTITLEMENT }}
         run: |
-        pip3 install -y -r requirements.txt \
-          python3 .polaris-uploadandscan.py \
-          rm -rf polarispackage.zip \
+        pip3 install -y -r requirements.txt
+          python3 .polaris-uploadandscan.py
+          rm -rf polarispackage.zip
