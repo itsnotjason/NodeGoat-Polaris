@@ -22,28 +22,7 @@ scantypes = ["SAST","SCA"]
 testnotes = ""
 triage = "NOT_ENTITLED"
 ###################  ^^^^^ EDIT VALUES ABOVE ^^^^ #################################
-#
-# CREATING ZIP FILE
-#
 fileName = "polarispackage.zip"
-#pass directory when running script i.e python3 script.py /path/to/app to override sending cwd
-pathoveride = str(sys.argv[1]) 
-cwd = os.getcwd()
-if len(pathoveride) < 2:
-	fileDirectory = cwd
-else:
-	fileDirectory = pathoveride
-print("Creating Zip From: ", fileDirectory)
-
-directory = pathlib.Path(fileDirectory)
-
-with zipfile.ZipFile(fileName, mode="w") as archive:
-		for file_path in directory.rglob("*"):
-			archive.write(
-				file_path,
-				arcname=file_path.relative_to(directory)
-			)
-
 dt = datetime.now(timezone.utc)
 tz_dt = dt.astimezone()
 iso_date = tz_dt.isoformat()
