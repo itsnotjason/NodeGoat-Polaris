@@ -1,34 +1,26 @@
 name: polaris upload and scan
 on: [push, pull_request]
 jobs:
-  run:
-    name: Build NodeGoat
+  build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        java: [ 8 ]
+    name: NodeGoat
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Set up Java
-        uses: actions/setup-java@v1
+      - uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
         with:
-          java-version: ${{ matrix.java }}
-          java-package: jdk
-          architecture: x64
-      - name: Run tests
-        run: npm install
+          node-version: 18
+      - run: npm install
       - name: Run Polaris Scan
         shell: bash
         env:
-          BRIDGE_POLARIS_SERVERURL: ${{ secrets.POLARIS_SERVER_URL }}
-          BRIDGE_POLARIS_ACCESSTOKEN: ${{ secrets.POLARIS_ACCESS_TOKEN }}
-          BRIDGE_POLARIS_APPLICATION_NAME: "JP-insecurebank"
-          BRIDGE_POLARIS_PROJECT_NAME: "insecurebank-gh-pr"
-          BRIDGE_POLARIS_BRANCH_NAME: ${{ github.event.ref_name }}
+          POLARIS_API_URL: ${{ secrets.POLARIS_API_URL }}
+          POLARIS_API_TOKEN: ${{ secrets.POLARIS_ACCESS_TOKEN }}
+          POLARIS_APP_NAME: ${{ secrets.POLARIS_APP_NAME }}
+          POLARIS_PROJECT_NAME: ${{ secrets.POLARIS_PROJECT_NAME }}
+          POLARIS_SCA_ENTITLEMENT: ${{ secrets.POLARIS_SCA_ENTITLEMENT }}
+          POLARIS_SAST_ENTITLEMENT: ${{ secrets.POLARIS_SAST_ENTITLEMENT }}
         run: |
-        echo "$BRIDGECLI_LINUX64"
-        echo "$BRIDGE_POLARIS_SERVERURL"
-        echo "$RUNNER_TEMP"
-        #curl -fLsS -o bridge.zip https://artifactory.internal.synopsys.com/artifactory/clops-local/clops.sig.synopsys.com/synopsys-bridge/1.1.0/synopsys-bridge-1.1.0-linux64.zip && unzip -qo -d $RUNNER_TEMP bridge.zip && rm -f bridge.zip
-        #$RUNNER_TEMP/synopsys-bridge --verbose --stage polaris polaris.assessment.types=SAST,SCA --input input.json
+        pip3 install -y -r requirements.txt
+        python3 .polaris-uploadandscan.py
+        rm -rf polarispackage.zip
