@@ -13,9 +13,9 @@ from tqdm.utils import CallbackIOWrapper
 # POLARIS PLATFORM 
 #
 api_token = os.environ['POLARIS_API_TOKEN']
-api_url =  "https://poc.polaris.synopsys.com/api/"
-appname = "JP-JuiceShop"
-projectname = "JuiceShop"
+api_url =  os.environ['POLARIS_API_URL']
+appname = os.environ['POLARIS_APP_NAME']
+projectname = os.environ['POLARIS_PROJECT_NAME']
 entitlementIds = [os.environ['POLARIS_SCA_ENTITLEMENT'], os.environ['POLARIS_SAST_ENTITLEMENT']]
 sast_entitlementId = os.environ['POLARIS_SAST_ENTITLEMENT']
 scantypes = ["SAST","SCA"]
