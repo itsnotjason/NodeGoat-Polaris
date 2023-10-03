@@ -22,5 +22,6 @@ jobs:
           POLARIS_SAST_ENTITLEMENT: ${{ secrets.POLARIS_SAST_ENTITLEMENT }}
         run: |
           pip3 install -r requirements.txt
-          python3 .polaris-uploadandscan.py ${GITHUB_WORKSPACE}
+          zip -9 -r --exclude=*.git*  polarispackage.zip ${GITHUB_WORKSPACE}
+          python3 .polaris-uploadandscan.py
           rm -rf polarispackage.zip
