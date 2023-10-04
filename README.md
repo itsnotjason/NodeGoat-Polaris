@@ -1,6 +1,8 @@
 # NodeGoat - Polaris Upload and Scan
 
-At times you simply need to package your app, and send and upload for it to be analyzed using the Synopsys Polaris Platform. This workflow is possible via the UI, however doing this in the CI would require tools, a local install, and build of your app. This script will simply take a number of inputs, package your application once built and upload it to be scanned by Polaris.
+At times you simply need to package your app, and send and upload for it to be analyzed using the Synopsys Polaris Platform. This workflow is possible via the UI, however doing this in the CI would require tools, a local install, and build of your app. 
+
+This script will simply take a number of inputs, package your application once built and upload it to be scanned by Polaris. Be advised, it will not give you PR comments, or break build via policy. This is limited to supported languages via the upload method on the Synopsys Polaris Platform.
 
 ## Getting Started
 
