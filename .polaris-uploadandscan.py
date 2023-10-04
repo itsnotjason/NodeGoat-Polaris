@@ -23,6 +23,20 @@ testnotes = ""
 triage = "NOT_ENTITLED"
 ###################  ^^^^^ EDIT VALUES ABOVE ^^^^ #################################
 fileName = "polarispackage.zip"
+#
+# CREATE ZIP FILE
+#
+#cwd = os.getcwd()
+#fileDirectory = cwd
+#print("Creating Zip From: ", fileDirectory)
+#directory = pathlib.Path(fileDirectory)
+#with zipfile.ZipFile(fileName, mode="w") as archive:
+#		for file_path in directory.rglob("*"):
+#			archive.write(
+#				file_path,
+#				arcname=file_path.relative_to(directory)
+#			)
+#
 dt = datetime.now(timezone.utc)
 tz_dt = dt.astimezone()
 iso_date = tz_dt.isoformat()
