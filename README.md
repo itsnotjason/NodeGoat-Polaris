@@ -45,7 +45,8 @@ Add the action to build your project. Once built you will simply need to add the
           rm -rf polarispackage.zip
 ```
 
-### Please note this was originally created to work in Jenkins. This concept can be replicated to most CI environment following the same simple steps and adjusting the environment variables being passed to the script.
+### Please note 
+this was originally created to work in Jenkins. This concept can be replicated to most CI environment following the same simple steps and adjusting the environment variables being passed to the script.
 
 ### Credits
 Many thanks to John O. and Sean H. Takes a village, and you guys are awesome.
