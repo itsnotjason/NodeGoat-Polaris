@@ -20,11 +20,11 @@ Make sure the following secret environment variables are set:
 
 ### Step 2:
 
-Make sure the requirements.txt file is placed in your working space root folder.
+Make sure the requirements.txt file is placed in your workspace root folder.
 
 ### Step 3:
 
-Make sure the .polaris-uploadandscan.py file is placed in your working space root folder. 
+Make sure the .polaris-uploadandscan.py file is placed in your workspace root folder. 
 
 ### Step 4:
 
