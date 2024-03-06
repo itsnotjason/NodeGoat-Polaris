@@ -12,7 +12,7 @@ jobs:
         run: curl -k -L https://github.com/itsnotjason/sigma/raw/main/sigma-linux_x86_64      
 
       - name: SIGMA analysis
-        run: ./sigma analyze --format github .      
+        run: ./sigma-linux_x86_64 analyze --format github .      
 
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v1
