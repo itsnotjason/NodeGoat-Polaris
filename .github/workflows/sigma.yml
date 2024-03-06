@@ -13,7 +13,7 @@ jobs:
           curl -k -o sigma ${{ secrets.SIGMA_DOWNLOAD_PATH }}
 
       - name: SIGMA analysis
-        run: ./sigma analyze --format github .      
+        run: chmod +x sigma | ./sigma analyze --format github .      
 
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v1
