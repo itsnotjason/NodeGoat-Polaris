@@ -1,0 +1,18 @@
+version: 1
+policies:
+  - id: MEDIUM_POLICY_GATE:medium-severity
+    when:
+      severity: medium
+    result:
+      exit-code: 1
+      message: >
+        MEDIUM_POLICY_GATE:medium-severity message / 
+        Defect from a medium severity checker caused this failure.
+  - id: HIGH_POLICY_GATE:high-severity
+    when:
+      severity: high
+    result:
+      exit-code: 1
+      message: >
+        HIGH_POLICY_GATE:high-severity message / 
+        Defect from a high severity checker caused this failure.
