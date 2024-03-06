@@ -1,0 +1,20 @@
+on: [push]
+
+jobs:
+  sigma_download_script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2   
+
+
+      - name: Download SIGMA
+        run: curl -k -L https://github.com/itsnotjason/sigma/raw/main/sigma-linux_x86_64      
+
+      - name: SIGMA analysis
+        run: ./sigma analyze --format github .      
+
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: sigma-results.json
