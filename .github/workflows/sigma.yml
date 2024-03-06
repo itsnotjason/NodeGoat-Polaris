@@ -9,10 +9,10 @@ jobs:
 
 
       - name: Download SIGMA
-        run: curl -k -L https://github.com/itsnotjason/sigma/raw/main/sigma-linux_x86_64      
+        run: curl -k -o sigma -L https://github.com/itsnotjason/sigma/raw/main/sigma-linux_x86_64.tar      
 
       - name: SIGMA analysis
-        run: ./sigma-linux_x86_64 analyze --format github .      
+        run: ./sigma analyze --format github .      
 
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v1
