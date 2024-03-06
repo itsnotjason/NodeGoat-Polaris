@@ -10,8 +10,7 @@ jobs:
 
       - name: Download SIGMA
         run: |
-          curl -k -o sigma https://github.com/itsnotjason/sigma/raw/main/sigma-linux_x86_64.tar
-          chmod +x sigma
+          curl -k -o sigma https://github.com/itsnotjason/wrongsecrets/raw/main/sigma-linux_x86_64.tar
 
       - name: SIGMA analysis
         run: ./sigma analyze --format github .      
